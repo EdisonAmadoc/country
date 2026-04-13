@@ -1,9 +1,10 @@
+function Informativa() {
 
-function Informativa(){
-    return(
-        <>
-        <p>Informativa</p>
-        </>
-    )
+  return (
+    <>
+      <p>Informativa</p>
+    </>
+  )
 }
+
 export default Informativa

@@ -1,9 +1,10 @@
+function Original() {
 
-function Original(){
-    return(
-        <>
-        <p>Original</p>
-        </>
-    )
+  return (
+    <>
+      <p>Original</p>
+    </>
+  )
 }
+
 export default Original
