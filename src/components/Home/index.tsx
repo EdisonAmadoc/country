@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 
+
 import "./style.css";
 
 interface Ranking {
@@ -78,13 +79,13 @@ function Home() {
   }, [filtro])
 
   const rankingFiltrado = ranking.filter((equipo) =>
-    busqueda.length < 3
+    busqueda.length < 1
       ? true  // muestra todos si hay menos de 3 caracteres
       : equipo.contestantName.toLowerCase().includes(busqueda.toLowerCase())
   )
 
   const estadisticasFiltradas = estadisticas.filter((jugador) =>
-    busqueda.length < 3
+    busqueda.length < 1
       ? true  // muestra todos
       : jugador.name.toLowerCase().includes(busqueda.toLowerCase()) ||
         jugador.contestantName.toLowerCase().includes(busqueda.toLowerCase())
@@ -126,10 +127,10 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {ranking.map((equipo) => (
+              {rankingFiltrado.map((equipo) => (
                 <tr key={equipo.rank}
                     className={
-                      busqueda.length >= 3 &&
+                      busqueda.length >= 1 &&
                       equipo.contestantName.toLowerCase().includes(busqueda.toLowerCase())
                         ? 'resaltado'
                         : ''
@@ -159,10 +160,10 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {estadisticas.map((jugador, index) => (
+              {estadisticasFiltradas.map((jugador, index) => (
                 <tr key={index}
                     className={
-                      busqueda.length >= 3 &&
+                      busqueda.length >= 1 &&
                       (jugador.name.toLowerCase().includes(busqueda.toLowerCase()) ||
                       jugador.contestantName.toLowerCase().includes(busqueda.toLowerCase()))
                         ? 'resaltado'
